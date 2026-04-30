@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0F172A" />
+  <meta name="application-name" content="NextGrant" />
+  <meta name="apple-mobile-web-app-title" content="NextGrant" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="language" content="Romanian" />
+
+  <!-- =========================================================
+       SEO — Titlu & Descriere
+       ========================================================= -->
+  <title>NextGrant — Granturi inteligente pentru afaceri ambițioase | Moldova</title>
+  <meta name="description" content="Consultanță granturi nerambursabile pentru IMM din Moldova. Verificare eligibilitate gratuită în 24h. ODA, 373, Start Tineri, PARE 1+1, UE/GIZ, AIPA." />
+  <meta name="keywords" content="granturi Moldova, ODA Crestem IMM, Programul 373, Start pentru Tineri, PARE 1+1, granturi UE, AIPA, finantare nerambursabila, consultanta granturi" />
+  <meta name="author" content="NextGrant SRL" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://nextgrant.md/" />
+
+  <!-- =========================================================
+       hreflang — semnalează versiunile de limbă pentru Google
+       (acelaşi URL pentru toate, dar marcat corect)
+       ========================================================= -->
+  <link rel="alternate" hreflang="ro" href="https://nextgrant.md/" />
+  <link rel="alternate" hreflang="ru" href="https://nextgrant.md/?lang=ru" />
+  <link rel="alternate" hreflang="en" href="https://nextgrant.md/?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://nextgrant.md/" />
+
+  <!-- =========================================================
+       SEO — Geo-targeting Moldova
+       ========================================================= -->
+  <meta name="geo.region" content="MD" />
+  <meta name="geo.placename" content="Chișinău, Republica Moldova" />
+  <meta name="geo.position" content="47.0105;28.8638" />
+  <meta name="ICBM" content="47.0105, 28.8638" />
+
+  <!-- =========================================================
+       SEO — Open Graph & Twitter
+       ========================================================= -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:locale:alternate" content="ru_MD" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="NextGrant" />
+  <meta property="og:title" content="NextGrant — Granturi inteligente pentru afaceri ambițioase" />
+  <meta property="og:description" content="Consultanță granturi nerambursabile pentru IMM Moldova. Identificăm finanțările eligibile, pregătim dosarul. Răspuns în 24h." />
+  <meta property="og:url" content="https://nextgrant.md/" />
+  <meta property="og:image" content="https://nextgrant.md/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NextGrant — Granturi inteligente pentru afaceri ambițioase" />
+  <meta name="twitter:description" content="Consultanță în granturi nerambursabile pentru IMM-uri din Moldova. Verificare eligibilitate gratuită." />
+  <meta name="twitter:image" content="https://nextgrant.md/og-image.jpg" />
+
+  <!-- =========================================================
+       Google Search Console verification
+       (preluat de pe site-ul vechi — păstrează același cont GSC)
+       ========================================================= -->
+  <meta name="google-site-verification" content="7s14EETKjkwDkg4LeGDE-B-gWGA3CoXflMnscRPxhoY" />
+
+  <!-- =========================================================
+       Sitemap & Favicon
+       ========================================================= -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- Favicon — același logo ca în header
+       Param ?v=2 forțează browser-ul să facă refetch (favicon-urile sunt cache-uite agresiv).
+       Crește numărul când modifici fișierul SVG.
+       Pentru iOS home screen + browsere legacy poți genera apple-touch-icon.png (180×180)
+       din favicon.svg cu realfavicongenerator.net — apoi adaugi link-ul aici. -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+  <link rel="mask-icon" href="/favicon-mask.svg?v=2" color="#0F172A" />
+
+  <!-- =========================================================
+       Tipografie — Inter + Manrope (preconnect pentru viteză)
+       ========================================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- DNS prefetch pentru CDN-uri (mai puțin critic ca preconnect, dar gratuit) -->
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+  <link rel="dns-prefetch" href="https://unpkg.com" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" />
+
+  <!-- =========================================================
+       Tailwind CDN + configurație brand
+       ========================================================= -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#0F172A', 2: '#1E293B', 3: '#334155' },
+            gold: { DEFAULT: '#C9A84C', 2: '#B8923D', 3: '#E8C76A' },
+            cream: '#FAFAF7',
+            'gray-soft': '#F3F4F6',
+            'text-muted': '#6B7280'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['Manrope', 'Inter', 'sans-serif']
+          },
+          fontSize: {
+            'hero': ['clamp(2.25rem, 6vw, 5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+            'h2': ['clamp(1.75rem, 4vw, 3rem)', { lineHeight: '1.15', letterSpacing: '-0.015em' }]
+          },
+          boxShadow: {
+            'soft': '0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.05)',
+            'lift': '0 10px 30px rgba(15,23,42,0.08), 0 2px 8px rgba(15,23,42,0.04)',
+            'gold-glow': '0 8px 24px rgba(201,168,76,0.25)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- JSON-LD: Organization (entitate principală) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://nextgrant.md/#organization",
+    "name": "NextGrant",
+    "legalName": "NextGrant SRL",
+    "alternateName": ["NextGrant Moldova", "NextGrant SRL"],
+    "url": "https://nextgrant.md/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nextgrant.md/favicon.svg",
+      "width": 512,
+      "height": 512
+    },
+    "image": "https://nextgrant.md/og-image.jpg",
+    "description": "Consultanță în granturi și finanțări nerambursabile pentru IMM-uri din Republica Moldova. Specializați în programe ODA, 373, Start Tineri, PARE 1+1, UE/GIZ, AIPA.",
+    "foundingDate": "2026",
+    "areaServed": { "@type": "Country", "name": "Republica Moldova" },
+    "sameAs": [
+      "https://www.facebook.com/NextGrantMD/",
+      "https://www.instagram.com/nextgrantmoldova/"
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+373-68-343-222",
+      "email": "office@nextgrant.md",
+      "contactType": "customer service",
+      "areaServed": "MD",
+      "availableLanguage": ["Romanian", "Russian", "English"]
+    }]
+  }
+  </script>
+
+  <!-- JSON-LD: ProfessionalService (firma de consultanță, local SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://nextgrant.md/#service",
+    "name": "NextGrant — Consultanță granturi nerambursabile",
+    "description": "Identificăm finanțările la care ești eligibil, pregătim dosarul și te asistăm până la aprobare. Specializare ODA Moldova.",
+    "url": "https://nextgrant.md/",
+    "logo": "https://nextgrant.md/favicon.svg",
+    "image": "https://nextgrant.md/og-image.jpg",
+    "telephone": "+373-68-343-222",
+    "email": "office@nextgrant.md",
+    "priceRange": "$$",
+    "currenciesAccepted": "MDL",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calea Moșilor 28",
+      "addressLocality": "Chișinău",
+      "postalCode": "MD-2020",
+      "addressCountry": "MD"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 47.0105, "longitude": 28.8638 },
+    "areaServed": [
+      { "@type": "Country", "name": "Republica Moldova" },
+      { "@type": "AdministrativeArea", "name": "Chișinău" }
+    ],
+    "serviceType": [
+      "Consultanță granturi nerambursabile",
+      "Pregătire dosar ODA",
+      "Plan de afaceri pentru granturi",
+      "Verificare eligibilitate IMM",
+      "Asistență monitorizare grant",
+      "Consultanță Programul 373",
+      "Aplicare Start pentru Tineri",
+      "Aplicare PARE 1+1",
+      "Granturi UE / GIZ",
+      "Subvenții AIPA"
+    ],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }],
+    "sameAs": [
+      "https://www.facebook.com/NextGrantMD/",
+      "https://www.instagram.com/nextgrantmoldova/"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicii NextGrant",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Verificare eligibilitate",
+          "description": "Analiză gratuită a eligibilității pentru programele de granturi disponibile.",
+          "price": "0",
+          "priceCurrency": "MDL",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pregătire dosar complet de grant",
+          "description": "Plan de afaceri, formulare ODA, model financiar 5 ani, documente suport.",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "description": "Taxă fixă între 2.000 și 5.000 lei la angajare + 5% comision din grantul aprobat (taxa inițială deductibilă)",
+            "priceCurrency": "MDL"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite (cu SearchAction pentru sitelinks searchbox) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://nextgrant.md/#website",
+    "url": "https://nextgrant.md/",
+    "name": "NextGrant",
+    "description": "Granturi inteligente pentru afaceri ambițioase din Republica Moldova",
+    "publisher": { "@id": "https://nextgrant.md/#organization" },
+    "inLanguage": ["ro", "ru", "en"]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://nextgrant.md/" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: HowTo — pașii pentru a obține un grant -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Cum obții un grant nerambursabil în Moldova prin NextGrant",
+    "description": "Procesul în 4 pași pentru a accesa finanțări nerambursabile (ODA, Programul 373, Start Tineri, PARE 1+1, UE/GIZ, AIPA) cu sprijinul consultanților NextGrant.",
+    "image": "https://nextgrant.md/og-image.jpg",
+    "totalTime": "P30D",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "MDL",
+      "value": "5000"
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Trimiți datele",
+        "text": "Completezi formularul online cu date de bază despre afacerea ta. Durează 2 minute.",
+        "url": "https://nextgrant.md/#lead"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Analizăm eligibilitatea",
+        "text": "Răspuns în 24 de ore cu programele de granturi potrivite și suma estimativă pentru afacerea ta."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Pregătim dosarul",
+        "text": "În 2-4 săptămâni pregătim plan de afaceri, formulare ODA, model financiar pe 5 ani și toate documentele suport."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Primești grantul",
+        "text": "Depunere → aprobare → finanțare. Te asistăm și după aprobare, pe perioada de monitorizare ODA de 24 luni."
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Cine este eligibil pentru granturile ODA?", "acceptedAnswer": { "@type": "Answer", "text": "IMM-urile înregistrate în Republica Moldova care au cel puțin un an de activitate, nu au datorii la bugetul de stat și se încadrează în domeniile aprobate de Organizația pentru Dezvoltarea Antreprenoriatului. Verificăm gratuit eligibilitatea ta în maxim 24 de ore." } },
+      { "@type": "Question", "name": "Cât durează procesul de aplicare?", "acceptedAnswer": { "@type": "Answer", "text": "Pregătirea unui dosar complet durează între 2 și 4 săptămâni, în funcție de complexitatea proiectului și de programul vizat. Decizia ODA vine de obicei în 30–60 de zile de la depunere." } },
+      { "@type": "Question", "name": "Ce cheltuieli sunt eligibile?", "acceptedAnswer": { "@type": "Answer", "text": "În general: utilaje și echipamente noi, software, lucrări de construcție-montaj, instruire și consultanță tehnică. Cheltuielile cu salariile, TVA-ul deductibil și automobilele de serviciu nu sunt eligibile. Lista exactă depinde de program." } },
+      { "@type": "Question", "name": "Trebuie să rambursez grantul?", "acceptedAnswer": { "@type": "Answer", "text": "Granturile ODA sunt nerambursabile, atâta timp cât respecți obligațiile din contract pe perioada de monitorizare (24 luni): menținerea investiției, raportare periodică, atingerea indicatorilor asumați." } },
+      { "@type": "Question", "name": "Cât costă serviciile NextGrant?", "acceptedAnswer": { "@type": "Answer", "text": "Taxă fixă între 2.000 și 5.000 lei la angajare, în funcție de complexitatea dosarului. Plus 5% comision total din grantul aprobat, din care taxa inițială se deduce. Verificarea eligibilității rămâne complet gratuită." } }
+    ]
+  }
+  </script>
+</head>
+
+<body class="font-sans bg-cream text-navy antialiased">
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] w-0 bg-gold z-[100] transition-[width] duration-75"></div>
+
+  <!-- CURSOR CUSTOM (desktop only) -->
+  <div id="cursor" class="hidden lg:block fixed pointer-events-none z-[99] w-6 h-6 rounded-full border border-gold/60 -translate-x-1/2 -translate-y-1/2 transition-[width,height,background-color,border-color] duration-200" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       1. HEADER
+       ============================================================ -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+
+        <a href="#hero" class="flex items-center gap-2.5 group" aria-label="NextGrant">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" class="transition-transform duration-300 group-hover:scale-105">
+            <rect width="36" height="36" rx="8.5" fill="#0F172A"/>
+            <path d="M11 25 L11 11 L20.5 23 L20.5 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M22 13 L27 8 M27 8 L27 11.5 M27 8 L23.5 8" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span class="font-display font-bold text-lg lg:text-xl tracking-tight text-navy">NextGrant</span>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8" aria-label="Navigare principală">
+          <a href="#hero" class="nav-link text-sm font-medium text-navy/80 hover:text-navy" data-i18n="nav.home">Acasă</a>
+          <a href="#servicii" class="nav-link text-sm font-medium text-navy/80 hover:text-navy" data-i18n="nav.services">Servicii</a>
+          <a href="#programe" class="nav-link text-sm font-medium text-navy/80 hover:text-navy" data-i18n="nav.programs">Programe</a>
+          <a href="#despre" class="nav-link text-sm font-medium text-navy/80 hover:text-navy" data-i18n="nav.about">Despre</a>
+          <a href="#contact" class="nav-link text-sm font-medium text-navy/80 hover:text-navy" data-i18n="nav.contact">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3 lg:gap-4">
+          <div class="hidden sm:flex items-center gap-1 text-xs font-medium" role="group" aria-label="Limbă">
+            <button class="lang-btn active" data-lang="ro" aria-pressed="true">RO</button>
+            <span class="text-text-muted/40">·</span>
+            <button class="lang-btn" data-lang="ru" aria-pressed="false" data-i18n-title="lang.tooltip.ru">RU</button>
+            <span class="text-text-muted/40">·</span>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" data-i18n-title="lang.tooltip.en">EN</button>
+          </div>
+
+          <a href="#lead" class="cta-primary hidden sm:inline-flex items-center gap-2 text-sm">
+            <span data-i18n="nav.cta">Verifică eligibilitatea</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 cta-arrow"></i>
+          </a>
+
+          <button id="menu-toggle" class="lg:hidden p-2 -mr-2 text-navy" aria-label="Meniu" aria-expanded="false">
+            <i data-lucide="menu" class="w-6 h-6 menu-icon-open"></i>
+            <i data-lucide="x" class="w-6 h-6 menu-icon-close hidden"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden hidden bg-cream border-t border-navy/5">
+      <nav class="px-4 py-4 flex flex-col gap-1" aria-label="Navigare mobilă">
+        <a href="#hero" class="mobile-nav-link" data-i18n="nav.home">Acasă</a>
+        <a href="#servicii" class="mobile-nav-link" data-i18n="nav.services">Servicii</a>
+        <a href="#programe" class="mobile-nav-link" data-i18n="nav.programs">Programe</a>
+        <a href="#despre" class="mobile-nav-link" data-i18n="nav.about">Despre</a>
+        <a href="#contact" class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
+        <!-- Switcher limbi mobil -->
+        <div class="flex items-center gap-2 px-4 py-3 mt-2 text-sm font-medium border-t border-navy/5" role="group" aria-label="Limbă">
+          <span class="text-text-muted text-xs">Limbă:</span>
+          <button class="lang-btn active" data-lang="ro" aria-pressed="true">RO</button>
+          <span class="text-text-muted/40">·</span>
+          <button class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+          <span class="text-text-muted/40">·</span>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a href="#lead" class="cta-primary mt-2 justify-center">
+          <span data-i18n="nav.cta">Verifică eligibilitatea</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN — toate secțiunile principale (pentru SEO/accessibility)
+       ============================================================ -->
+  <main id="main">
+
+  <!-- ============================================================
+       2. HERO
+       ============================================================ -->
+  <section id="hero" class="relative min-h-[100svh] flex items-center pt-24 pb-16 overflow-hidden">
+    <div class="hero-bg absolute inset-0 -z-10"></div>
+    <canvas id="particles" class="absolute inset-0 -z-10 w-full h-full" aria-hidden="true"></canvas>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-4xl">
+
+        <div class="reveal" data-reveal-delay="0">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-gold/20 backdrop-blur-sm text-gold-3 text-xs font-medium tracking-wide">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse-soft"></span>
+            <span data-i18n="hero.eyebrow">CONSULTANȚĂ GRANTURI · MOLDOVA</span>
+          </span>
+        </div>
+
+        <h1 class="reveal mt-6 text-hero font-display font-bold text-white" data-reveal-delay="100" data-i18n-html="hero.headline.html">
+          Granturi nerambursabile pentru <span class="text-gradient-gold">IMM-urile care vor să crească</span>
+        </h1>
+
+        <p class="reveal mt-6 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed" data-reveal-delay="200" data-i18n="hero.subheadline">
+          Identificăm finanțările la care ești eligibil. Pregătim dosarul. Tu te concentrezi pe afacere.
+        </p>
+
+        <div class="reveal mt-9 flex flex-col sm:flex-row gap-3 sm:gap-4" data-reveal-delay="300">
+          <a href="#lead" class="cta-primary justify-center sm:justify-start">
+            <span data-i18n="hero.cta.primary">Verifică gratuit eligibilitatea</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 cta-arrow"></i>
+          </a>
+          <a href="#cum-functioneaza" class="cta-outline justify-center sm:justify-start">
+            <span data-i18n="hero.cta.secondary">Vezi cum funcționează</span>
+            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div class="reveal mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/70" data-reveal-delay="400">
+          <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-gold"></i><span data-i18n="hero.trust.1">Răspuns în 24h</span></span>
+          <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-gold"></i><span data-i18n="hero.trust.2">Verificare gratuită</span></span>
+          <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-gold"></i><span data-i18n="hero.trust.3">Specializat ODA Moldova</span></span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#trust" class="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors" aria-label="Scroll">
+      <span class="text-[10px] tracking-[0.2em] uppercase" data-i18n="hero.scroll">Scroll</span>
+      <span class="w-px h-10 bg-gradient-to-b from-gold/60 to-transparent scroll-indicator"></span>
+    </a>
+  </section>
+
+  <!-- ============================================================
+       2b. TRUST STRIP
+       ============================================================ -->
+  <section id="trust" class="bg-cream border-y border-navy/5 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-xs font-medium tracking-[0.2em] uppercase text-text-muted mb-6" data-i18n="trust.label">
+        Au lucrat cu noi
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 opacity-70">
+        <div class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-full bg-navy text-white font-display font-bold text-sm flex items-center justify-center shadow-soft">AN</div>
+          <span class="font-display font-semibold text-navy/70 group-hover:text-navy transition-colors">Alfa Nistru</span>
+        </div>
+        <div class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-full bg-navy text-white font-display font-bold text-sm flex items-center justify-center shadow-soft">eC</div>
+          <span class="font-display font-semibold text-navy/70 group-hover:text-navy transition-colors">eCharge Moldova</span>
+        </div>
+        <div class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-full bg-navy text-white font-display font-bold text-sm flex items-center justify-center shadow-soft">PD</div>
+          <span class="font-display font-semibold text-navy/70 group-hover:text-navy transition-colors">Clinica PrimDentLux</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. STATISTICI
+       ============================================================ -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+        <div class="stat-card scroll-reveal">
+          <div class="stat-prefix text-gold text-sm font-semibold tracking-wide" data-i18n="stats.1.prefix">PÂNĂ LA</div>
+          <div class="stat-value font-display"><span class="counter" data-target="3" data-decimals="0">0</span><span class="text-gold">M</span></div>
+          <div class="stat-suffix" data-i18n="stats.1.suffix">lei grant maxim ODA</div>
+        </div>
+
+        <div class="stat-card scroll-reveal" style="--delay:80ms">
+          <div class="stat-prefix text-gold text-sm font-semibold tracking-wide" data-i18n="stats.2.prefix">RĂSPUNS ÎN</div>
+          <div class="stat-value font-display"><span class="counter" data-target="24" data-decimals="0">0</span><span class="text-gold">h</span></div>
+          <div class="stat-suffix" data-i18n="stats.2.suffix">verificare eligibilitate</div>
+        </div>
+
+        <div class="stat-card scroll-reveal" style="--delay:160ms">
+          <div class="stat-prefix text-gold text-sm font-semibold tracking-wide" data-i18n="stats.3.prefix">ACOPERIM</div>
+          <div class="stat-value font-display"><span class="counter" data-target="5" data-decimals="0">0</span><span class="text-gold">+</span></div>
+          <div class="stat-suffix" data-i18n="stats.3.suffix">programe de finanțare</div>
+        </div>
+
+        <div class="stat-card scroll-reveal" style="--delay:240ms">
+          <div class="stat-prefix text-gold text-sm font-semibold tracking-wide" data-i18n="stats.4.prefix">DOAR</div>
+          <div class="stat-value font-display"><span class="counter" data-target="5" data-decimals="0">0</span><span class="text-gold">%</span></div>
+          <div class="stat-suffix" data-i18n="stats.4.suffix">comision total — taxă simbolică la angajare</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. DE CE NEXTGRANT
+       ============================================================ -->
+  <section class="py-20 lg:py-28 bg-gray-soft">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-2xl mb-14 lg:mb-16">
+        <span class="eyebrow" data-i18n="why.eyebrow">DE CE NEXTGRANT</span>
+        <h2 class="text-h2 font-display font-bold mt-4" data-i18n="why.heading">Diferența dintre o aplicație respinsă și un grant aprobat e în detalii.</h2>
+        <p class="mt-5 text-lg text-text-muted leading-relaxed" data-i18n="why.sub">Suntem aici tocmai pentru detaliile alea.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <article class="feature-card scroll-reveal">
+          <div class="feature-icon"><i data-lucide="scale" class="w-5 h-5"></i></div>
+          <h3 class="font-display font-bold text-lg mt-5" data-i18n="why.1.title">Specializat ODA și legislația Moldova</h3>
+          <p class="text-text-muted mt-2 text-[15px] leading-relaxed" data-i18n="why.1.desc">Citim fiecare actualizare a ghidului. Știm ce se aprobă, ce se respinge și de ce.</p>
+        </article>
+
+        <article class="feature-card scroll-reveal" style="--delay:80ms">
+          <div class="feature-icon"><i data-lucide="zap" class="w-5 h-5"></i></div>
+          <h3 class="font-display font-bold text-lg mt-5" data-i18n="why.2.title">Răspuns în 24h</h3>
+          <p class="text-text-muted mt-2 text-[15px] leading-relaxed" data-i18n="why.2.desc">Verificare eligibilitate în maxim o zi lucrătoare, fără birocrație.</p>
+        </article>
+
+        <article class="feature-card scroll-reveal" style="--delay:160ms">
+          <div class="feature-icon"><i data-lucide="handshake" class="w-5 h-5"></i></div>
+          <h3 class="font-display font-bold text-lg mt-5" data-i18n="why.3.title">Taxă simbolică, restul la succes</h3>
+          <p class="text-text-muted mt-2 text-[15px] leading-relaxed" data-i18n="why.3.desc">O taxă fixă mică la angajare ca să demarăm dosarul oficial. Plus 5% comision total din grantul aprobat — taxa inițială se deduce.</p>
+        </article>
+
+        <article class="feature-card scroll-reveal" style="--delay:240ms">
+          <div class="feature-icon"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+          <h3 class="font-display font-bold text-lg mt-5" data-i18n="why.4.title">Suport pe 24 luni</h3>
+          <p class="text-text-muted mt-2 text-[15px] leading-relaxed" data-i18n="why.4.desc">Te ținem de mână și după aprobare, în perioada de monitorizare ODA.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. SERVICII
+       ============================================================ -->
+  <section id="servicii" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-2xl mb-14 lg:mb-16">
+        <span class="eyebrow" data-i18n="services.eyebrow">CE FACEM</span>
+        <h2 class="text-h2 font-display font-bold mt-4" data-i18n="services.heading">Trei pași până la grantul tău.</h2>
+        <p class="mt-5 text-lg text-text-muted leading-relaxed" data-i18n="services.sub">Fără surprize, fără jargonul ODA.</p>
+      </div>
+
+      <div class="services-track relative grid md:grid-cols-3 gap-6 md:gap-4">
+        <div class="services-line absolute left-0 right-0 top-12 h-px bg-navy/10 hidden md:block">
+          <div class="services-line-fill h-full bg-gradient-to-r from-gold to-gold-3 origin-left scale-x-0"></div>
+        </div>
+
+        <article class="service-step scroll-reveal">
+          <div class="service-num">01</div>
+          <h3 class="font-display font-bold text-xl mt-6" data-i18n="services.1.title">Verificăm eligibilitatea</h3>
+          <p class="text-text-muted mt-3 leading-relaxed" data-i18n-html="services.1.desc.html">Analizăm cifrele tale, domeniul și obiectivele. Îți spunem clar la ce programe poți aplica și care e suma realistă. <span class="text-navy font-medium">Gratuit, în 24h.</span></p>
+        </article>
+
+        <article class="service-step scroll-reveal" style="--delay:120ms">
+          <div class="service-num">02</div>
+          <h3 class="font-display font-bold text-xl mt-6" data-i18n="services.2.title">Pregătim dosarul complet</h3>
+          <p class="text-text-muted mt-3 leading-relaxed" data-i18n="services.2.desc">Plan de afaceri, formulare ODA, Excel financiar pe 5 ani, documente suport, oferte de la furnizori. Tot ce e nevoie ca dosarul să treacă din prima.</p>
+        </article>
+
+        <article class="service-step scroll-reveal" style="--delay:240ms">
+          <div class="service-num">03</div>
+          <h3 class="font-display font-bold text-xl mt-6" data-i18n="services.3.title">Te asistăm până la finalizare</h3>
+          <p class="text-text-muted mt-3 leading-relaxed" data-i18n="services.3.desc">Depunere, dialog cu evaluatorii, contract, raportare pe 24 luni. Nu dispărem după semnătură.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. PROGRAME
+       ============================================================ -->
+  <section id="programe" class="py-20 lg:py-28 bg-gray-soft">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-2xl mb-14 lg:mb-16">
+        <span class="eyebrow" data-i18n="programs.eyebrow">PROGRAME ACOPERITE</span>
+        <h2 class="text-h2 font-display font-bold mt-4" data-i18n="programs.heading">Granturile pe care le cunoaștem la nivel de virgulă.</h2>
+        <p class="mt-5 text-lg text-text-muted leading-relaxed" data-i18n="programs.sub">Fiecare program are reguli proprii. Le aplicăm exact cum o cere ghidul.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <article class="program-card scroll-reveal">
+          <span class="program-badge program-badge-active" data-i18n="programs.badge.active">ACTIV</span>
+          <h3 class="font-display font-bold text-lg mt-4" data-i18n="programs.1.title">ODA Creștem IMM</h3>
+          <p class="text-text-muted mt-2 text-[15px] leading-relaxed" data-i18n-html="programs.1.desc.html">Până la <strong class="text-navy">3.000.000 lei</strong> pentru digitalizare, ecologizare și modernizare. Co-finanțare 50%.</p>
+          <ul class="program-tags">
+            <li data-i18n="programs.1.tag.1">Digitalizare</li><li data-i18n="programs.1.tag.2">Ecologizare</li><li data-i18n="programs.1.tag.3">Echipamente</li>
+          </ul>
+        </article>
+
+        <article class="program-card scroll-reveal" style="--delay:80ms">
+          <span class="program-badge program-badge-active" data-i18n="programs.badge.active">ACTIV</span>
+          <h3 class="font-display font-bold text-lg mt-4" data-i18n="programs.2.title">Programul 373</h3>
+          <p class="text-text-muted mt-2 text-[15px] leading-relaxed" data-i18n-html="programs.2.desc.html">Credit preferențial cu dobândă <strong class="text-navy">7%</strong> pentru extinderea capacităților de producție.</p>
+          <ul class="program-tags">
+            <li data-i18n="programs.2.tag.1">Capital fix</li><li data-i18n="programs.2.tag.2">Producție</li><li data-i18n="programs.2.tag.3">7% dobândă</li>
+          </ul>
+        </article>
+
+        <article class="program-card scroll-reveal" style="--delay:160ms">
+          <span class="program-badge program-badge-tineri" data-i18n="programs.badge.young">TINERI</span>
+          <h3 class="font-display font-bold text-lg mt-4" data-i18n="programs.3.title">Start pentru Tineri</h3>
+          <p class="text-text-muted mt-2 text-[15px] leading-relaxed" data-i18n-html="programs.3.desc.html">Până la <strong class="text-navy">200.000 lei</strong> pentru antreprenori 18–35 ani. Componentă nerambursabilă semnificativă.</p>
+          <ul class="program-tags">
+            <li data-i18n="programs.3.tag.1">18–35 ani</li><li data-i18n="programs.3.tag.2">Start-up</li><li data-i18n="programs.3.tag.3">Mentorat</li>
+          </ul>
+        </article>
+
+        <article class="program-card scroll-reveal" style="--delay:240ms">
+          <span class="program-badge program-badge-diaspora" data-i18n="programs.badge.diaspora">DIASPORA</span>
+          <h3 class="font-display font-bold text-lg mt-4" data-i18n="programs.4.title">PARE 1+1</h3>
+          <p class="text-text-muted mt-2 text-[15px] leading-relaxed" data-i18n-html="programs.4.desc.html">Statul investește <strong class="text-navy">1 leu pentru fiecare leu</strong> al diasporei. Pentru cetățenii moldoveni reveniți acasă.</p>
+          <ul class="program-tags">
+            <li data-i18n="programs.4.tag.1">Diaspora</li><li data-i18n="programs.4.tag.2">1+1</li><li data-i18n="programs.4.tag.3">Întoarcere acasă</li>
+          </ul>
+        </article>
+
+        <article class="program-card scroll-reveal" style="--delay:320ms">
+          <span class="program-badge program-badge-eu" data-i18n="programs.badge.eu">UE / GIZ</span>
+          <h3 class="font-display font-bold text-lg mt-4" data-i18n="programs.5.title">Granturi UE / GIZ</h3>
+          <p class="text-text-muted mt-2 text-[15px] leading-relaxed" data-i18n="programs.5.desc">Energie verde, inovare, digitalizare. Sume variabile, criterii speciale, audit european.</p>
+          <ul class="program-tags">
+            <li data-i18n="programs.5.tag.1">Energie verde</li><li data-i18n="programs.5.tag.2">Inovare</li><li data-i18n="programs.5.tag.3">EU4Business</li>
+          </ul>
+        </article>
+
+        <article class="program-card scroll-reveal" style="--delay:400ms">
+          <span class="program-badge program-badge-active" data-i18n="programs.badge.agro">AGRO</span>
+          <h3 class="font-display font-bold text-lg mt-4" data-i18n="programs.6.title">AIPA Subvenții</h3>
+          <p class="text-text-muted mt-2 text-[15px] leading-relaxed" data-i18n="programs.6.desc">Subvenții pentru sectorul agricol: utilaje, plantații, sisteme de irigare, procesare.</p>
+          <ul class="program-tags">
+            <li data-i18n="programs.6.tag.1">Agricultură</li><li data-i18n="programs.6.tag.2">Procesare</li><li data-i18n="programs.6.tag.3">Irigare</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. CALCULATOR
+       ============================================================ -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-2xl mb-12">
+        <span class="eyebrow" data-i18n="calc.eyebrow">SIMULATOR GRANT ODA</span>
+        <h2 class="text-h2 font-display font-bold mt-4" data-i18n="calc.heading">Cât poți primi pentru investiția ta?</h2>
+        <p class="mt-5 text-lg text-text-muted leading-relaxed" data-i18n="calc.sub">Plafon ODA: 50% din investiție, maxim 3.000.000 lei. Mișcă slider-ul.</p>
+      </div>
+
+      <div class="calculator scroll-reveal">
+
+        <div class="calc-display">
+          <div class="calc-label" data-i18n="calc.label">GRANT ESTIMATIV</div>
+          <div class="calc-amount font-display">
+            <span id="calc-grant">1.500.000</span>
+            <span class="calc-currency" data-i18n="calc.currency">lei</span>
+          </div>
+          <div class="calc-hint" data-i18n="calc.hint">50% din investiția ta, plafonat la 3M lei</div>
+        </div>
+
+        <div class="mt-8">
+          <div class="flex items-baseline justify-between mb-3">
+            <label for="calc-slider" class="text-sm font-semibold text-navy/80" data-i18n="calc.investment.label">Investiție totală</label>
+            <span class="font-display font-bold text-lg"><span id="calc-investment">3.000.000</span> <span data-i18n="calc.currency">lei</span></span>
+          </div>
+          <input type="range" id="calc-slider" min="100000" max="6000000" step="50000" value="3000000" class="calc-slider" data-i18n-aria-label="calc.slider.aria" aria-label="Selectează valoarea investiției" />
+          <div class="flex justify-between mt-2 text-xs text-text-muted">
+            <span>100K</span>
+            <span>6M</span>
+          </div>
+        </div>
+
+        <div class="calc-metrics">
+          <div class="calc-metric">
+            <i data-lucide="wallet" class="w-5 h-5 text-gold"></i>
+            <div>
+              <div class="calc-metric-label" data-i18n="calc.metric.investment">Investiție</div>
+              <div class="calc-metric-value"><span id="m-investment">3.000.000</span> <span data-i18n="calc.currency">lei</span></div>
+            </div>
+          </div>
+          <div class="calc-metric">
+            <i data-lucide="gift" class="w-5 h-5 text-gold"></i>
+            <div>
+              <div class="calc-metric-label" data-i18n="calc.metric.grant">Grant (50%)</div>
+              <div class="calc-metric-value"><span id="m-grant">1.500.000</span> <span data-i18n="calc.currency">lei</span></div>
+            </div>
+          </div>
+          <div class="calc-metric">
+            <i data-lucide="banknote" class="w-5 h-5 text-gold"></i>
+            <div>
+              <div class="calc-metric-label" data-i18n="calc.metric.own">Contribuție proprie</div>
+              <div class="calc-metric-value"><span id="m-own">1.500.000</span> <span data-i18n="calc.currency">lei</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-7">
+          <div class="flex items-baseline justify-between mb-2">
+            <span class="text-xs font-medium text-text-muted" data-i18n="calc.bar.label">Plafon ODA accesat</span>
+            <span class="text-xs font-semibold text-navy"><span id="calc-percent">50</span>%</span>
+          </div>
+          <div class="calc-bar">
+            <div id="calc-bar-fill" class="calc-bar-fill" style="width:50%"></div>
+          </div>
+        </div>
+
+        <a href="#lead" class="cta-primary mt-8 w-full justify-center">
+          <span data-i18n="calc.cta">Verifică condițiile reale ale companiei tale</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 cta-arrow"></i>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. CUM FUNCȚIONEAZĂ
+       ============================================================ -->
+  <section id="cum-functioneaza" class="py-20 lg:py-28 bg-navy text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image:radial-gradient(#C9A84C 1px,transparent 1px);background-size:32px 32px"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+      <div class="max-w-2xl mb-14 lg:mb-16">
+        <span class="eyebrow text-gold" data-i18n="how.eyebrow">PROCES SIMPLU</span>
+        <h2 class="text-h2 font-display font-bold mt-4 text-white" data-i18n="how.heading">Cum funcționează colaborarea.</h2>
+        <p class="mt-5 text-lg text-white/60 leading-relaxed" data-i18n="how.sub">De la prima conversație până la banii în cont.</p>
+      </div>
+
+      <div class="how-track relative">
+        <div class="how-line"></div>
+
+        <article class="how-step scroll-reveal">
+          <div class="how-num">1</div>
+          <h3 class="font-display font-bold text-lg mt-5" data-i18n="how.1.title">Trimiți datele</h3>
+          <p class="text-white/60 mt-2 text-[15px] leading-relaxed" data-i18n="how.1.desc">Formular online, 2 minute. Doar info de bază despre afacere.</p>
+        </article>
+
+        <article class="how-step scroll-reveal" style="--delay:120ms">
+          <div class="how-num">2</div>
+          <h3 class="font-display font-bold text-lg mt-5" data-i18n="how.2.title">Analizăm eligibilitatea</h3>
+          <p class="text-white/60 mt-2 text-[15px] leading-relaxed" data-i18n="how.2.desc">Răspuns în 24h cu programele potrivite și suma estimativă.</p>
+        </article>
+
+        <article class="how-step scroll-reveal" style="--delay:240ms">
+          <div class="how-num">3</div>
+          <h3 class="font-display font-bold text-lg mt-5" data-i18n="how.3.title">Pregătim dosarul</h3>
+          <p class="text-white/60 mt-2 text-[15px] leading-relaxed" data-i18n="how.3.desc">2–4 săptămâni de lucru. Tu ne dai documente, noi facem restul.</p>
+        </article>
+
+        <article class="how-step scroll-reveal" style="--delay:360ms">
+          <div class="how-num">4</div>
+          <h3 class="font-display font-bold text-lg mt-5" data-i18n="how.4.title">Primești grantul</h3>
+          <p class="text-white/60 mt-2 text-[15px] leading-relaxed" data-i18n="how.4.desc">Depunere → aprobare → finanțare. Rămânem alături 24 luni.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. TESTIMONIALE
+       ============================================================ -->
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-2xl mb-12 lg:mb-14">
+        <span class="eyebrow" data-i18n="test.eyebrow">CE SPUN CLIENȚII</span>
+        <h2 class="text-h2 font-display font-bold mt-4" data-i18n="test.heading">Trei colaborări, trei perspective.</h2>
+      </div>
+
+      <div class="testimonial-carousel scroll-reveal" id="testimonial-carousel">
+        <div class="testimonial-track" id="testimonial-track">
+
+          <article class="testimonial-card">
+            <i data-lucide="quote" class="w-8 h-8 text-gold opacity-30"></i>
+            <blockquote class="mt-5 text-lg lg:text-xl italic text-navy/80 leading-relaxed" data-i18n="test.1.quote">
+              Echipa NextGrant ne-a ajutat să accesăm un grant ODA pentru modernizarea liniei de procesare. Au fost minuțioși cu fiecare detaliu și răspunsul a venit exact când au promis.
+            </blockquote>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-author">
+              <div class="testimonial-monogram">CP</div>
+              <div>
+                <div class="font-semibold">Constantin Petrovici</div>
+                <div class="text-sm text-text-muted" data-i18n="test.1.role">Director · Alfa Nistru</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <i data-lucide="quote" class="w-8 h-8 text-gold opacity-30"></i>
+            <blockquote class="mt-5 text-lg lg:text-xl italic text-navy/80 leading-relaxed" data-i18n="test.2.quote">
+              Aveam o idee bună pentru infrastructura de încărcare electrică, dar nu știam cum se traduce în limbajul ODA. NextGrant a luat ideea și a făcut din ea un dosar care s-a aprobat.
+            </blockquote>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-author">
+              <div class="testimonial-monogram">VZ</div>
+              <div>
+                <div class="font-semibold">Vladimir Zaporojan</div>
+                <div class="text-sm text-text-muted" data-i18n="test.2.role">Fondator · eCharge Moldova</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <i data-lucide="quote" class="w-8 h-8 text-gold opacity-30"></i>
+            <blockquote class="mt-5 text-lg lg:text-xl italic text-navy/80 leading-relaxed" data-i18n="test.3.quote">
+              Pentru clinică, granturile par o lume închisă. NextGrant ne-a deschis-o: am înțeles exact ce putem cere, ce nu, și de ce. Profesionalism real, fără promisiuni umflate.
+            </blockquote>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-author">
+              <div class="testimonial-monogram">LP</div>
+              <div>
+                <div class="font-semibold">Ludmila Petco</div>
+                <div class="text-sm text-text-muted" data-i18n="test.3.role">Director · Clinica PrimDentLux</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="testimonial-controls">
+          <button class="testimonial-arrow" id="testimonial-prev" aria-label="Anterior">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <div class="testimonial-dots" id="testimonial-dots" role="tablist">
+            <button class="testimonial-dot active" data-slide="0" aria-label="1"></button>
+            <button class="testimonial-dot" data-slide="1" aria-label="2"></button>
+            <button class="testimonial-dot" data-slide="2" aria-label="3"></button>
+          </div>
+          <button class="testimonial-arrow" id="testimonial-next" aria-label="Următor">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. FAQ
+       ============================================================ -->
+  <section class="py-20 lg:py-28 bg-gray-soft">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="mb-12 lg:mb-14">
+        <span class="eyebrow" data-i18n="faq.eyebrow">ÎNTREBĂRI FRECVENTE</span>
+        <h2 class="text-h2 font-display font-bold mt-4" data-i18n="faq.heading">Răspunsuri scurte la ce întrebi cel mai des.</h2>
+      </div>
+
+      <div class="faq-list" id="faq-list">
+
+        <details class="faq-item scroll-reveal">
+          <summary class="faq-q">
+            <span data-i18n="faq.1.q">Cine este eligibil pentru granturile ODA?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5"></i>
+          </summary>
+          <div class="faq-a">
+            <p data-i18n-html="faq.1.a.html">IMM-urile înregistrate în Republica Moldova care au cel puțin un an de activitate, nu au datorii la bugetul de stat și se încadrează în domeniile aprobate de Organizația pentru Dezvoltarea Antreprenoriatului. <strong>Verificăm gratuit eligibilitatea ta în maxim 24 de ore.</strong></p>
+          </div>
+        </details>
+
+        <details class="faq-item scroll-reveal" style="--delay:60ms">
+          <summary class="faq-q">
+            <span data-i18n="faq.2.q">Cât durează procesul de aplicare?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5"></i>
+          </summary>
+          <div class="faq-a">
+            <p data-i18n-html="faq.2.a.html">Pregătirea unui dosar complet durează între <strong>2 și 4 săptămâni</strong>, în funcție de complexitatea proiectului și de programul vizat. Decizia ODA vine de obicei în 30–60 de zile de la depunere.</p>
+          </div>
+        </details>
+
+        <details class="faq-item scroll-reveal" style="--delay:120ms">
+          <summary class="faq-q">
+            <span data-i18n="faq.3.q">Ce cheltuieli sunt eligibile?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5"></i>
+          </summary>
+          <div class="faq-a">
+            <p data-i18n-html="faq.3.a.html">În general: utilaje și echipamente noi, software, lucrări de construcție-montaj, instruire și consultanță tehnică. Cheltuielile cu salariile, TVA-ul deductibil și automobilele de serviciu <strong>nu sunt eligibile</strong>. Lista exactă depinde de program și o verificăm punctual pentru cazul tău.</p>
+          </div>
+        </details>
+
+        <details class="faq-item scroll-reveal" style="--delay:180ms">
+          <summary class="faq-q">
+            <span data-i18n="faq.4.q">Trebuie să rambursez grantul?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5"></i>
+          </summary>
+          <div class="faq-a">
+            <p data-i18n-html="faq.4.a.html">Granturile ODA sunt <strong>nerambursabile</strong>, atâta timp cât respecți obligațiile din contract pe perioada de monitorizare (24 luni): menținerea investiției, raportare periodică, atingerea indicatorilor asumați. Te asistăm pe tot parcursul.</p>
+          </div>
+        </details>
+
+        <details class="faq-item scroll-reveal" style="--delay:240ms">
+          <summary class="faq-q">
+            <span data-i18n="faq.5.q">Cât costă serviciile NextGrant?</span>
+            <i data-lucide="plus" class="faq-icon w-5 h-5"></i>
+          </summary>
+          <div class="faq-a">
+            <p data-i18n-html="faq.5.a.html"><strong>Taxă fixă între 2.000 și 5.000 lei la angajare</strong>, în funcție de complexitatea dosarului — semnal că proiectul e serios pentru ambele părți. Plus <strong>5% comision total</strong> din grantul aprobat, din care taxa inițială se deduce. Verificarea eligibilității rămâne 100% gratuită, indiferent dacă alegi să continui cu noi sau nu.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. LEAD CAPTURE
+       ============================================================ -->
+  <section id="lead" class="py-20 lg:py-32 bg-gradient-to-br from-navy via-navy-2 to-navy text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.05]" style="background-image:radial-gradient(#C9A84C 1px,transparent 1px);background-size:28px 28px" aria-hidden="true"></div>
+    <div class="absolute -top-32 -right-32 w-96 h-96 bg-gold/10 rounded-full blur-3xl" aria-hidden="true"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-gold/5 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+      <div class="text-center mb-10">
+        <h2 class="text-h2 font-display font-bold text-white" data-i18n="lead.heading">Hai să vedem la ce granturi ai dreptul.</h2>
+        <p class="mt-4 text-lg text-gold-3" data-i18n="lead.sub">100% gratuit. Răspuns în 24 ore. Fără obligații.</p>
+      </div>
+
+      <form id="lead-form" class="lead-form" novalidate>
+        <div id="lead-form-fields" class="grid sm:grid-cols-2 gap-4">
+
+          <div class="form-field sm:col-span-2">
+            <label for="f-company" data-i18n="lead.field.company">Denumire companie *</label>
+            <input type="text" id="f-company" name="company" required autocomplete="organization" data-i18n-placeholder="lead.field.company.ph" placeholder="SRL Exemplu Moldova" />
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="f-idno" data-i18n="lead.field.idno">IDNO *</label>
+            <input type="text" id="f-idno" name="idno" required pattern="[0-9]{13}" inputmode="numeric" placeholder="1234567890123" maxlength="13" />
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="f-phone" data-i18n="lead.field.phone">Telefon *</label>
+            <input type="tel" id="f-phone" name="phone" required autocomplete="tel" placeholder="+373 68 ..." value="+373 " />
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-field sm:col-span-2">
+            <label for="f-email" data-i18n="lead.field.email">Email *</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email" data-i18n-placeholder="lead.field.email.ph" placeholder="contact@firma.md" />
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-field sm:col-span-2">
+            <label for="f-domain" data-i18n="lead.field.domain">Domeniu de activitate *</label>
+            <select id="f-domain" name="domain" required>
+              <option value="" data-i18n="lead.field.domain.placeholder">— Alege un domeniu —</option>
+              <option data-i18n="domain.horeca">HoReCa</option>
+              <option data-i18n="domain.production">Producție</option>
+              <option data-i18n="domain.commerce">Comerț</option>
+              <option data-i18n="domain.it">IT</option>
+              <option data-i18n="domain.agro">Agricultură</option>
+              <option data-i18n="domain.tourism">Turism</option>
+              <option data-i18n="domain.construction">Construcții</option>
+              <option data-i18n="domain.transport">Transport</option>
+              <option data-i18n="domain.services">Servicii profesionale</option>
+              <option data-i18n="domain.other">Altele</option>
+            </select>
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-field sm:col-span-2">
+            <label for="f-message">
+              <span data-i18n="lead.field.message">Ce vrei să finanțezi</span>
+              <span class="opacity-50" data-i18n="lead.field.message.optional">(opțional)</span>
+            </label>
+            <textarea id="f-message" name="message" rows="3" data-i18n-placeholder="lead.field.message.ph" placeholder="Ex: linie nouă de producție, panouri solare, software ERP..."></textarea>
+          </div>
+
+          <div class="sm:col-span-2 mt-2">
+            <button type="submit" class="cta-primary cta-large w-full justify-center" id="lead-submit">
+              <span data-i18n="lead.submit">Trimite — primesc oportunitățile gratis</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 cta-arrow"></i>
+            </button>
+            <p class="text-center text-xs text-white/50 mt-3 inline-flex items-center justify-center gap-1.5 w-full">
+              <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+              <span data-i18n="lead.privacy">Datele tale sunt confidențiale. Niciun spam. Te contactăm doar despre cererea ta.</span>
+            </p>
+          </div>
+        </div>
+
+        <div id="lead-success" class="lead-success hidden">
+          <svg class="success-check" viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="36" fill="none" stroke="#C9A84C" stroke-width="3" class="success-circle"/>
+            <path d="M24 42 L36 54 L58 30" fill="none" stroke="#C9A84C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="success-path"/>
+          </svg>
+          <h3 class="font-display font-bold text-2xl mt-6 text-white" data-i18n="lead.success.heading">Mulțumim — am primit cererea ta.</h3>
+          <p class="text-white/70 mt-3 max-w-md mx-auto" data-i18n="lead.success.text">Te contactăm în maxim 24 ore lucrătoare cu programele potrivite și o sumă estimativă pentru afacerea ta.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12. DESPRE / CONTACT
+       ============================================================ -->
+  <section id="despre" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <div class="scroll-reveal">
+          <span class="eyebrow" data-i18n="about.eyebrow">DESPRE NEXTGRANT</span>
+          <h2 class="text-h2 font-display font-bold mt-4" data-i18n="about.heading">Partenerul tău în finanțări nerambursabile.</h2>
+
+          <div class="mt-6 space-y-4 text-text-muted text-lg leading-relaxed">
+            <p data-i18n="about.p1">NextGrant SRL e o companie tânără cu o singură obsesie: să facem accesul la granturi simplu pentru antreprenorii moldoveni care merită finanțare, dar n-au timp să se piardă în formulare.</p>
+            <p data-i18n="about.p2">Am pornit în 2026 cu echipa care a lucrat ani la rând în consultanță financiară, fiscalitate și pregătire de dosare ODA. Am văzut prea multe afaceri bune care au pierdut granturi din motive evitabile — formulare incomplete, planuri financiare slabe, încadrări greșite.</p>
+            <p data-i18n="about.p3">Acum facem treaba asta exact, pentru tine.</p>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10">
+            <div class="mini-stat">
+              <div class="mini-stat-num">2026</div>
+              <div class="mini-stat-label" data-i18n="about.stat.1.label">an fondare</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-num">100%</div>
+              <div class="mini-stat-label" data-i18n="about.stat.2.label">focus Moldova</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-num">5+</div>
+              <div class="mini-stat-label" data-i18n="about.stat.3.label">programe</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-num">24h</div>
+              <div class="mini-stat-label" data-i18n="about.stat.4.label">răspuns</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="contact" class="scroll-reveal" style="--delay:120ms">
+          <div class="contact-card">
+            <span class="eyebrow" data-i18n="contact.eyebrow">CONTACT</span>
+            <h3 class="text-2xl font-display font-bold mt-3" data-i18n="contact.heading">Hai să vorbim.</h3>
+
+            <ul class="mt-6 space-y-4">
+              <li class="contact-item">
+                <i data-lucide="map-pin" class="w-5 h-5 text-gold flex-shrink-0 mt-0.5"></i>
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-text-muted" data-i18n="contact.address.label">Adresă</div>
+                  <div class="font-medium" data-i18n="contact.address.value">Calea Moșilor 28, Chișinău</div>
+                </div>
+              </li>
+              <li class="contact-item">
+                <i data-lucide="phone" class="w-5 h-5 text-gold flex-shrink-0 mt-0.5"></i>
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-text-muted" data-i18n="contact.phone.label">Telefon</div>
+                  <a href="tel:+37368343222" class="font-medium hover:text-gold-2">+373 68 343 222</a>
+                </div>
+              </li>
+              <li class="contact-item">
+                <i data-lucide="mail" class="w-5 h-5 text-gold flex-shrink-0 mt-0.5"></i>
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-text-muted" data-i18n="contact.email.label">Email</div>
+                  <a href="mailto:office@nextgrant.md" class="font-medium hover:text-gold-2">office@nextgrant.md</a>
+                </div>
+              </li>
+              <li class="contact-item">
+                <i data-lucide="clock" class="w-5 h-5 text-gold flex-shrink-0 mt-0.5"></i>
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-text-muted" data-i18n="contact.hours.label">Program</div>
+                  <div class="font-medium" data-i18n="contact.hours.value">Luni–Vineri · 09:00–18:00</div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="mt-6 rounded-xl overflow-hidden border border-navy/10">
+              <iframe
+                src="https://www.google.com/maps?q=Calea+Mosilor+28,+Chisinau,+Moldova&output=embed"
+                width="100%" height="220"
+                style="border:0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Locația NextGrant pe hartă">
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  </main>
+  <!-- /MAIN -->
+
+  <!-- ============================================================
+       13. FOOTER
+       ============================================================ -->
+  <footer class="bg-navy text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-8">
+
+        <div class="lg:col-span-4">
+          <a href="#hero" class="flex items-center gap-2.5">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <rect width="36" height="36" rx="8.5" fill="white"/>
+              <path d="M11 25 L11 11 L20.5 23 L20.5 11" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M22 13 L27 8 M27 8 L27 11.5 M27 8 L23.5 8" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <span class="font-display font-bold text-xl">NextGrant</span>
+          </a>
+          <p class="mt-4 text-white/60 text-[15px] leading-relaxed max-w-xs" data-i18n="footer.tagline">Granturi inteligente pentru afaceri ambițioase din Republica Moldova.</p>
+          <div class="mt-5 flex gap-2">
+            <!-- Facebook NextGrant Moldova -->
+            <a href="https://www.facebook.com/NextGrantMD/" target="_blank" rel="noopener noreferrer" aria-label="Facebook NextGrant" class="social-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.13 8.44 9.88v-6.99H7.9v-2.89h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.24.19 2.24.19v2.47H15.19c-1.24 0-1.63.77-1.63 1.56v1.88h2.77l-.44 2.89h-2.33V22c4.78-.75 8.44-4.88 8.44-9.94z"/>
+              </svg>
+            </a>
+            <!-- Instagram NextGrant Moldova -->
+            <a href="https://www.instagram.com/nextgrantmoldova/" target="_blank" rel="noopener noreferrer" aria-label="Instagram NextGrant" class="social-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="footer-heading" data-i18n="footer.col.nav">Navigare</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" data-i18n="nav.home">Acasă</a></li>
+            <li><a href="#servicii" data-i18n="nav.services">Servicii</a></li>
+            <li><a href="#programe" data-i18n="nav.programs">Programe</a></li>
+            <li><a href="#despre" data-i18n="nav.about">Despre</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3">
+          <h4 class="footer-heading" data-i18n="footer.col.programs">Programe</h4>
+          <ul class="footer-links">
+            <li><a href="#programe" data-i18n="programs.1.title">ODA Creștem IMM</a></li>
+            <li><a href="#programe" data-i18n="programs.2.title">Programul 373</a></li>
+            <li><a href="#programe" data-i18n="programs.3.title">Start pentru Tineri</a></li>
+            <li><a href="#programe" data-i18n="programs.4.title">PARE 1+1</a></li>
+            <li><a href="#programe" data-i18n="programs.5.title">Granturi UE / GIZ</a></li>
+            <li><a href="#programe" data-i18n="programs.6.title">AIPA Subvenții</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3">
+          <h4 class="footer-heading" data-i18n="footer.col.contact">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+37368343222"><i data-lucide="phone" class="w-3.5 h-3.5 inline mr-1.5"></i>+373 68 343 222</a></li>
+            <li><a href="mailto:office@nextgrant.md"><i data-lucide="mail" class="w-3.5 h-3.5 inline mr-1.5"></i>office@nextgrant.md</a></li>
+            <li class="flex items-start gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 inline mt-1"></i><span data-i18n="contact.address.value">Calea Moșilor 28, Chișinău</span></li>
+            <li class="flex items-start gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 inline mt-1"></i><span data-i18n="contact.hours.value">Luni–Vineri · 09:00–18:00</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div class="text-sm text-white/50">
+          <span>© <span id="current-year">2026</span> NextGrant SRL. <span data-i18n="footer.copyright">Toate drepturile rezervate.</span></span>
+        </div>
+        <div class="text-xs text-white/40" data-i18n="footer.disclaimer">
+          NextGrant nu este afiliat cu Organizația pentru Dezvoltarea Antreprenoriatului (ODA).
+        </div>
+      </div>
+
+      <div class="mt-4 text-center text-xs text-white/30">
+        <span data-i18n="footer.made">Site realizat cu grijă în Chișinău</span> <span class="text-base">🇲🇩</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS — translations + lucide + script.js
+       ============================================================ -->
+  <script src="translations.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="script.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
