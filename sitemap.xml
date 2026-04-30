@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Pagina principală — română (default) -->
+  <url>
+    <loc>https://nextgrant.md/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://nextgrant.md/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nextgrant.md/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nextgrant.md/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nextgrant.md/" />
+  </url>
+
+  <!-- Secțiuni interne (single-page, dar servește pentru deep linking în Google) -->
+  <url>
+    <loc>https://nextgrant.md/#servicii</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nextgrant.md/#programe</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://nextgrant.md/#cum-functioneaza</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nextgrant.md/#despre</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://nextgrant.md/#contact</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

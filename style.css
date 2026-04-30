@@ -1,0 +1,990 @@
+/* ==========================================================================
+   NextGrant — style.css
+   Stil personalizat: tokens brand, animații, componente, responsive
+   --------------------------------------------------------------------------
+   Cuprins:
+   01. Variabile (tokens) brand
+   02. Reset & base
+   03. Tipografie & helpers (eyebrow, gradient gold)
+   04. Header & navigare
+   05. Butoane CTA
+   06. Hero (background, particule, scroll indicator)
+   07. Stats counter
+   08. Feature cards
+   09. Servicii (services track + linie progres)
+   10. Programe (carduri cu badge)
+   11. Calculator
+   12. Cum funcționează (timeline)
+   13. Testimoniale (carousel)
+   14. FAQ accordion
+   15. Lead capture (formular pe navy)
+   16. Despre / Contact
+   17. Footer
+   18. Animații scroll-reveal & utilități
+   19. Cursor custom & scroll progress
+   20. Reduced motion
+   21. Responsive tweaks
+   ========================================================================== */
+
+/* 01. Variabile brand ===================================================== */
+:root{
+  --navy:        #0F172A;
+  --navy-2:      #1E293B;
+  --navy-3:      #334155;
+  --gold:        #C9A84C;
+  --gold-2:      #B8923D;
+  --gold-3:      #E8C76A;
+  --cream:       #FAFAF7;
+  --gray-soft:   #F3F4F6;
+  --text-muted:  #6B7280;
+  --radius-sm: 8px;
+  --radius:    12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 02. Reset & base ======================================================== */
+*{ -webkit-tap-highlight-color: transparent; }
+
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+
+body{
+  font-family: 'Inter', system-ui, sans-serif;
+  font-feature-settings: 'cv02','cv03','cv04','cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Selecție text cu accent gold */
+::selection{ background: rgba(201,168,76,0.25); color: var(--navy); }
+
+/* Scroll bar subtle (desktop) */
+@media (hover: hover){
+  ::-webkit-scrollbar{ width: 10px; }
+  ::-webkit-scrollbar-track{ background: var(--cream); }
+  ::-webkit-scrollbar-thumb{ background: rgba(15,23,42,0.15); border-radius: 8px; border: 2px solid var(--cream); }
+  ::-webkit-scrollbar-thumb:hover{ background: rgba(15,23,42,0.3); }
+}
+
+/* 03. Tipografie & helpers ================================================ */
+.eyebrow{
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+}
+
+.text-gradient-gold{
+  background: linear-gradient(135deg, #E8C76A 0%, #C9A84C 50%, #B8923D 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* 04. Header & navigare =================================================== */
+#site-header{
+  background: transparent;
+  backdrop-filter: blur(0);
+}
+#site-header.is-scrolled{
+  background: rgba(250, 250, 247, 0.85);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  box-shadow: 0 1px 0 rgba(15,23,42,0.06);
+}
+
+/* Inițial peste hero (dark): textul navigării să fie alb */
+#site-header:not(.is-scrolled) .nav-link{ color: rgba(255,255,255,0.85); }
+#site-header:not(.is-scrolled) .nav-link:hover{ color: #fff; }
+#site-header:not(.is-scrolled) .lang-btn{ color: rgba(255,255,255,0.7); }
+#site-header:not(.is-scrolled) .lang-btn.active{ color: var(--gold-3); }
+#site-header:not(.is-scrolled) #menu-toggle{ color: #fff; }
+#site-header:not(.is-scrolled) a[aria-label="NextGrant — Acasă"] span{ color: #fff; }
+
+.nav-link{
+  position: relative;
+  transition: color 200ms var(--ease-out);
+}
+.nav-link::after{
+  content:'';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 250ms var(--ease-out);
+}
+.nav-link:hover::after{ transform: scaleX(1); }
+
+.lang-btn{
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  color: var(--text-muted);
+  transition: color 200ms var(--ease-out);
+}
+.lang-btn.active{ color: var(--navy); font-weight: 700; }
+.lang-btn:not(.active):hover{ color: var(--gold-2); }
+
+.mobile-nav-link{
+  display: block;
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  color: var(--navy);
+  transition: background 200ms var(--ease-out);
+}
+.mobile-nav-link:hover{ background: rgba(201,168,76,0.08); }
+
+/* 05. Butoane CTA ========================================================= */
+.cta-primary, .cta-outline{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: -0.005em;
+  transition: transform 200ms var(--ease-out),
+              background 200ms var(--ease-out),
+              box-shadow 250ms var(--ease-out),
+              color 200ms var(--ease-out);
+  white-space: nowrap;
+}
+
+.cta-primary{
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+.cta-primary:hover{
+  background: var(--gold-3);
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+}
+.cta-primary:active{ transform: scale(0.99); }
+.cta-primary .cta-arrow{
+  transition: transform 200ms var(--ease-out);
+}
+.cta-primary:hover .cta-arrow{ transform: translateX(4px); }
+
+.cta-outline{
+  background: transparent;
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.cta-outline:hover{
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.5);
+  color: #fff;
+}
+
+/* CTA mare (folosit în formular) */
+.cta-large{
+  padding: 1rem 1.75rem;
+  font-size: 1rem;
+  border-radius: var(--radius-lg);
+}
+
+/* 06. Hero ================================================================ */
+.hero-bg{
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(201,168,76,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+}
+#hero{
+  background: #0F172A; /* fallback */
+}
+
+/* Particule canvas — dimensiuni explicite (nu depind de Tailwind JIT) */
+#particles{
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: -1;
+}
+#hero { position: relative; }
+
+/* Pulse subtle pentru dot animat */
+@keyframes pulse-soft{
+  0%, 100%{ opacity: 1; transform: scale(1); }
+  50%{ opacity: 0.6; transform: scale(1.4); }
+}
+.animate-pulse-soft{ animation: pulse-soft 2.4s ease-in-out infinite; }
+
+/* Scroll indicator */
+.scroll-indicator{
+  animation: scroll-pulse 2.2s ease-in-out infinite;
+  transform-origin: top center;
+}
+@keyframes scroll-pulse{
+  0%{ transform: scaleY(0.4); opacity: 0.4; }
+  50%{ transform: scaleY(1); opacity: 1; }
+  100%{ transform: scaleY(0.4); opacity: 0.4; transform-origin: bottom center; }
+}
+
+/* Reveal stagger pentru hero text */
+.reveal{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 07. Stats counter ======================================================= */
+.stat-card{
+  position: relative;
+  padding: 1.5rem 0;
+}
+.stat-card::before{
+  content:'';
+  position: absolute;
+  left: 0; top: 0;
+  width: 32px; height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+.stat-prefix{
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+}
+.stat-value{
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-top: 0.75rem;
+}
+.stat-suffix{
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+/* 08. Feature cards ======================================================= */
+.feature-card{
+  position: relative;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(15,23,42,0.06);
+  transition: transform 250ms var(--ease-out),
+              box-shadow 250ms var(--ease-out),
+              border-color 250ms var(--ease-out);
+}
+.feature-card::after{
+  content:'';
+  position: absolute;
+  left: 1.5rem; right: 1.5rem; bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-3));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 300ms var(--ease-out);
+}
+.feature-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(15,23,42,0.08), 0 2px 6px rgba(15,23,42,0.04);
+  border-color: rgba(201,168,76,0.25);
+}
+.feature-card:hover::after{ transform: scaleX(1); }
+
+.feature-icon{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 09. Servicii (services track) =========================================== */
+.service-step{
+  background: var(--cream);
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(15,23,42,0.06);
+  position: relative;
+  transition: transform 250ms var(--ease-out), box-shadow 250ms var(--ease-out);
+}
+.service-step:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+}
+
+.service-num{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px; height: 56px;
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--gold-2);
+  position: relative;
+  z-index: 2;
+}
+
+.services-line-fill{
+  transition: transform 1200ms var(--ease-out);
+}
+.services-track.is-active .services-line-fill{
+  transform: scaleX(1);
+}
+
+/* 10. Programe (carduri cu badge) ========================================= */
+.program-card{
+  position: relative;
+  background: #fff;
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(15,23,42,0.06);
+  overflow: hidden;
+  transition: transform 250ms var(--ease-out),
+              box-shadow 250ms var(--ease-out);
+}
+.program-card::after{
+  content:'';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 350ms var(--ease-out);
+}
+.program-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(15,23,42,0.08);
+}
+.program-card:hover::after{ transform: scaleX(1); }
+
+.program-badge{
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.program-badge-active{ background: rgba(34,197,94,0.12); color: #15803d; }
+.program-badge-tineri{ background: rgba(168,85,247,0.12); color: #7e22ce; }
+.program-badge-diaspora{ background: rgba(59,130,246,0.12); color: #1d4ed8; }
+.program-badge-eu{ background: rgba(201,168,76,0.18); color: var(--gold-2); }
+
+.program-tags{
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+.program-tags li{
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  background: var(--gray-soft);
+  color: var(--text-muted);
+  border-radius: 999px;
+}
+
+/* 11. Calculator ========================================================== */
+.calculator{
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(15,23,42,0.06);
+  box-shadow: 0 14px 40px rgba(15,23,42,0.06);
+}
+
+.calc-display{
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+  color: #fff;
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.calc-display::before{
+  content:'';
+  position: absolute;
+  top: -40%; right: -20%;
+  width: 60%; height: 200%;
+  background: radial-gradient(circle, rgba(201,168,76,0.18), transparent 60%);
+  pointer-events: none;
+}
+.calc-label{
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.55);
+  font-weight: 600;
+}
+.calc-amount{
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-top: 0.5rem;
+  line-height: 1;
+}
+.calc-amount #calc-grant{ color: var(--gold-3); }
+.calc-currency{
+  font-size: 0.5em;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  margin-left: 0.4em;
+  letter-spacing: 0;
+}
+.calc-hint{
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* Slider */
+.calc-slider{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: var(--gray-soft);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  background-image: linear-gradient(to right, var(--gold) 0%, var(--gold) 50%, var(--gray-soft) 50%, var(--gray-soft) 100%);
+}
+.calc-slider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px; height: 24px;
+  background: var(--gold);
+  border: 4px solid #fff;
+  border-radius: 50%;
+  cursor: grab;
+  box-shadow: 0 2px 8px rgba(201,168,76,0.45);
+  transition: transform 150ms var(--ease-out);
+}
+.calc-slider::-webkit-slider-thumb:hover{ transform: scale(1.15); }
+.calc-slider::-webkit-slider-thumb:active{ cursor: grabbing; transform: scale(1.05); }
+.calc-slider::-moz-range-thumb{
+  width: 24px; height: 24px;
+  background: var(--gold);
+  border: 4px solid #fff;
+  border-radius: 50%;
+  cursor: grab;
+  box-shadow: 0 2px 8px rgba(201,168,76,0.45);
+}
+
+.calc-metrics{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(15,23,42,0.08);
+}
+@media (min-width: 640px){
+  .calc-metrics{ grid-template-columns: repeat(3, 1fr); }
+}
+.calc-metric{
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.calc-metric-label{
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.calc-metric-value{
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin-top: 2px;
+}
+
+.calc-bar{
+  width: 100%;
+  height: 6px;
+  background: var(--gray-soft);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.calc-bar-fill{
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-2), var(--gold-3));
+  border-radius: 999px;
+  transition: width 200ms var(--ease-out);
+}
+
+/* 12. Cum funcționează (timeline) ========================================= */
+.how-track{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 768px){
+  .how-track{ grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+}
+
+.how-step{
+  position: relative;
+  padding-left: 1rem;
+}
+@media (min-width: 768px){
+  .how-step{ padding-left: 0; }
+}
+
+.how-num{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px; height: 56px;
+  border: 2px solid rgba(201,168,76,0.4);
+  background: rgba(201,168,76,0.08);
+  border-radius: 50%;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--gold-3);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+}
+
+.how-line{
+  display: none;
+  position: absolute;
+  top: 28px;
+  left: 28px; right: 28px;
+  height: 1px;
+  background-image: linear-gradient(90deg, var(--gold) 50%, transparent 50%);
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  opacity: 0.4;
+}
+@media (min-width: 768px){
+  .how-line{ display: block; }
+}
+/* Versiune verticală pe mobil */
+@media (max-width: 767px){
+  .how-step::before{
+    content:'';
+    position: absolute;
+    left: 27px; top: 56px;
+    width: 1px; height: calc(100% - 40px);
+    background-image: linear-gradient(180deg, var(--gold) 50%, transparent 50%);
+    background-size: 1px 8px;
+    opacity: 0.4;
+  }
+  .how-step:last-child::before{ display: none; }
+}
+
+/* 13. Testimoniale (carousel) ============================================= */
+.testimonial-carousel{
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-track{
+  display: flex;
+  transition: transform 600ms var(--ease-soft);
+}
+.testimonial-card{
+  flex: 0 0 100%;
+  background: #fff;
+  padding: 2rem 2rem 1.75rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(15,23,42,0.06);
+  box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+}
+@media (min-width: 768px){
+  .testimonial-card{ padding: 2.5rem 2.75rem 2.25rem; }
+}
+
+.testimonial-divider{
+  width: 32px; height: 2px;
+  background: var(--gold);
+  margin: 1.5rem 0 1.25rem;
+  border-radius: 2px;
+}
+.testimonial-author{
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+.testimonial-monogram{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-controls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.testimonial-arrow{
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(15,23,42,0.1);
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 200ms var(--ease-out);
+}
+.testimonial-arrow:hover{
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.testimonial-dots{
+  display: flex;
+  gap: 0.5rem;
+}
+.testimonial-dot{
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(15,23,42,0.2);
+  border: 0;
+  cursor: pointer;
+  transition: all 200ms var(--ease-out);
+  padding: 0;
+}
+.testimonial-dot.active{
+  background: var(--gold);
+  width: 24px;
+  border-radius: 999px;
+}
+
+/* 14. FAQ accordion ======================================================= */
+.faq-list{ display: flex; flex-direction: column; gap: 0.75rem; }
+
+.faq-item{
+  background: #fff;
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+}
+.faq-item[open]{
+  border-color: rgba(201,168,76,0.4);
+  box-shadow: 0 6px 20px rgba(15,23,42,0.05);
+}
+.faq-q{
+  list-style: none;
+  cursor: pointer;
+  padding: 1.125rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  color: var(--navy);
+}
+.faq-q::-webkit-details-marker{ display: none; }
+.faq-q::marker{ display: none; }
+
+.faq-icon{
+  flex-shrink: 0;
+  color: var(--gold-2);
+  transition: transform 300ms var(--ease-out);
+}
+.faq-item[open] .faq-icon{ transform: rotate(45deg); }
+
+.faq-a{
+  padding: 0 1.25rem 1.25rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: 0.9375rem;
+}
+.faq-a p{ margin: 0; }
+.faq-a strong{ color: var(--navy); font-weight: 600; }
+
+/* Animația de deschidere — folosim @starting-style + transition unde e suport */
+@supports (interpolate-size: allow-keywords) {
+  .faq-item{ interpolate-size: allow-keywords; }
+}
+
+/* 15. Lead form (pe fundal navy) ========================================== */
+.lead-form{
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 1.75rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+@media (min-width: 640px){ .lead-form{ padding: 2.25rem; } }
+
+.form-field{ display: flex; flex-direction: column; gap: 0.375rem; }
+.form-field label{
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.01em;
+}
+.form-field input,
+.form-field select,
+.form-field textarea{
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  padding: 0.75rem 0.875rem;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  transition: all 200ms var(--ease-out);
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder{ color: rgba(255,255,255,0.35); }
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus{
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.18);
+}
+.form-field select option{ background: var(--navy); color: #fff; }
+.form-field input.invalid,
+.form-field select.invalid,
+.form-field textarea.invalid{
+  border-color: #f87171;
+  background: rgba(248,113,113,0.08);
+}
+.form-error{
+  display: none;
+  font-size: 0.75rem;
+  color: #fca5a5;
+  margin-top: 2px;
+}
+.form-field.has-error .form-error{ display: block; }
+
+/* Success */
+.lead-success{
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.success-check{ width: 80px; height: 80px; margin: 0 auto; display: block; }
+.success-circle{
+  stroke-dasharray: 226;
+  stroke-dashoffset: 226;
+  animation: draw-circle 600ms var(--ease-out) forwards;
+}
+.success-path{
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: draw-check 400ms var(--ease-out) 500ms forwards;
+}
+@keyframes draw-circle{ to{ stroke-dashoffset: 0; } }
+@keyframes draw-check{ to{ stroke-dashoffset: 0; } }
+
+/* 16. Despre / Contact ==================================================== */
+.mini-stat{
+  text-align: left;
+}
+.mini-stat-num{
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.625rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.mini-stat-label{
+  margin-top: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-card{
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(15,23,42,0.06);
+  box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+}
+.contact-item{
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+}
+
+/* 17. Footer ============================================================== */
+.footer-heading{
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 1rem;
+}
+.footer-links{
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.footer-links a{
+  color: rgba(255,255,255,0.6);
+  font-size: 0.875rem;
+  transition: color 200ms var(--ease-out);
+}
+.footer-links a:hover{ color: var(--gold-3); }
+
+.social-icon{
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms var(--ease-out);
+}
+.social-icon:hover{
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy);
+}
+
+/* 18. Animații scroll-reveal & utilități ================================== */
+.scroll-reveal{
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+  transition-delay: var(--delay, 0ms);
+}
+.scroll-reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 19. Cursor custom & scroll progress ===================================== */
+#cursor.is-hover{
+  width: 44px; height: 44px;
+  background: rgba(201,168,76,0.12);
+  border-color: var(--gold);
+}
+
+/* 20. Reduced motion ======================================================
+   NOTĂ: nu ucidem TOATE tranzițiile — doar animațiile de amploare (parallax,
+   pulsuri loop, particule rapide). Micro-interacțiunile (hover, FAQ, slider)
+   rămân, fiind sub 300ms și fără mișcare amplă. */
+@media (prefers-reduced-motion: reduce){
+  /* Animațiile loop / oscilatorii sunt oprite */
+  .animate-pulse-soft,
+  .scroll-indicator{ animation: none !important; }
+
+  /* Smooth scroll dezactivat */
+  html{ scroll-behavior: auto !important; }
+
+  /* Reveal-urile devin instantanee (fără translate/fade) */
+  .reveal,
+  .scroll-reveal{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Particulele rămân (sunt lente și gentile) — JS reduce nr și viteza */
+}
+
+/* 21. Responsive tweaks =================================================== */
+@media (max-width: 640px){
+  .calculator{ padding: 1.5rem 1.25rem; }
+  .feature-card, .program-card{ padding: 1.25rem; }
+  .testimonial-card{ padding: 1.5rem 1.25rem; }
+  .lead-form{ padding: 1.25rem; }
+  .contact-card{ padding: 1.5rem; }
+}
+
+/* Focus accesibil */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Pe touch — ascundem cursor custom (deja .hidden via Tailwind, dublăm) */
+@media (hover: none){
+  #cursor{ display: none !important; }
+}
+
+/* Toast notification (folosit de switcher RU/EN) ========================== */
+.ng-toast{
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 80px);
+  background: var(--navy);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.25);
+  border: 1px solid rgba(201,168,76,0.3);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms var(--ease-out), transform 350ms var(--ease-soft);
+  max-width: calc(100vw - 32px);
+  text-align: center;
+}
+.ng-toast.show{
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
