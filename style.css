@@ -963,6 +963,84 @@ textarea:focus-visible,
   #cursor{ display: none !important; }
 }
 
+/* Trust strip — logo-uri clienți =========================================
+   Card uniform alb (180×72px) pentru a ascunde diferențele de proporție și
+   fundalurile albe ale JPG-urilor. Look profesional, consistent.
+   Layout dual: img dacă există, fallback monogram+nume dacă 404.
+*/
+.trust-logo{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 100px;
+  padding: 0.875rem 1.25rem;
+  background: #fff;
+  border: 1px solid rgba(15,23,42,0.06);
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(15,23,42,0.04);
+  transition: all 280ms var(--ease-out);
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.9;
+}
+.trust-logo:hover{
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(15,23,42,0.1);
+  border-color: rgba(201,168,76,0.3);
+}
+.trust-logo img{
+  max-height: 72px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Compensare subtilă pentru logo-uri cu whitespace intern (eCharge și Inter Dent
+   au logo-ul real ocupând doar ~75-80% din JPG, deci par mai mici). */
+.trust-logo img[src*="echarge-moldova"]{ transform: scale(1.15); }
+.trust-logo img[src*="inter-dent"]{ transform: scale(1.2); }
+
+/* Pe mobil reducem puțin ca să încapă mai bine pe ecrane mici */
+@media (max-width: 480px){
+  .trust-logo{ width: 160px; height: 80px; padding: 0.625rem 1rem; }
+  .trust-logo img{ max-height: 56px; }
+}
+
+/* Fallback (apare doar când img a dat error) */
+.trust-logo-fallback{ display: none; }
+.trust-logo.logo-fallback img{ display: none; }
+.trust-logo.logo-fallback .trust-logo-fallback{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0.7;
+  transition: opacity 250ms var(--ease-out);
+}
+.trust-logo.logo-fallback:hover .trust-logo-fallback{ opacity: 1; }
+.trust-logo-mono{
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.trust-logo-fallback > span:last-child{
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.9375rem;
+  white-space: nowrap;
+}
+
 /* Toast notification (folosit de switcher RU/EN) ========================== */
 .ng-toast{
   position: fixed;

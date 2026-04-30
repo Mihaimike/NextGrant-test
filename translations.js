@@ -148,7 +148,7 @@ window.TRANSLATIONS = {
     'test.2.quote': 'Aveam o idee bună pentru infrastructura de încărcare electrică, dar nu știam cum se traduce în limbajul ODA. NextGrant a luat ideea și a făcut din ea un dosar care s-a aprobat.',
     'test.2.role': 'Fondator · eCharge Moldova',
     'test.3.quote': 'Pentru clinică, granturile par o lume închisă. NextGrant ne-a deschis-o: am înțeles exact ce putem cere, ce nu, și de ce. Profesionalism real, fără promisiuni umflate.',
-    'test.3.role': 'Director · Clinica PrimDentLux',
+    'test.3.role': 'Director · Inter Dent',
 
     // FAQ
     'faq.eyebrow': 'ÎNTREBĂRI FRECVENTE',
@@ -358,7 +358,7 @@ window.TRANSLATIONS = {
     'test.2.quote': 'У нас была хорошая идея инфраструктуры зарядки для электромобилей, но мы не знали, как перевести её на язык ODA. NextGrant взял идею и превратил в одобренный проект.',
     'test.2.role': 'Основатель · eCharge Moldova',
     'test.3.quote': 'Для клиники гранты выглядели закрытым миром. NextGrant открыл его для нас: мы поняли, что можем требовать, что нет, и почему. Настоящий профессионализм без раздутых обещаний.',
-    'test.3.role': 'Директор · Clinica PrimDentLux',
+    'test.3.role': 'Директор · Inter Dent',
 
     'faq.eyebrow': 'ЧАСТЫЕ ВОПРОСЫ',
     'faq.heading': 'Короткие ответы на самое частое.',
@@ -562,7 +562,7 @@ window.TRANSLATIONS = {
     'test.2.quote': "We had a good idea for EV charging infrastructure but didn't know how to translate it into ODA language. NextGrant took the idea and turned it into an approved application.",
     'test.2.role': 'Founder · eCharge Moldova',
     'test.3.quote': "For a clinic, grants seem like a closed world. NextGrant opened it for us: we understood exactly what we could request, what we couldn't, and why. Real professionalism, no inflated promises.",
-    'test.3.role': 'Director · Clinica PrimDentLux',
+    'test.3.role': 'Director · Inter Dent',
 
     'faq.eyebrow': 'FREQUENTLY ASKED',
     'faq.heading': 'Short answers to the most common questions.',

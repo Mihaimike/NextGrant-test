@@ -66,11 +66,11 @@
        ========================================================= -->
   <link rel="sitemap" type="application/xml" href="sitemap.xml" />
 
-  <!-- Favicon — același logo ca în header
+  <!-- Favicon — căi relative ca să meargă și pe GitHub Pages (subpath) și pe domeniu real.
        Param ?v=2 forțează browser-ul să facă refetch (favicon-urile sunt cache-uite agresiv).
        Crește numărul când modifici fișierul SVG.
        Pentru iOS home screen + browsere legacy poți genera apple-touch-icon.png (180×180)
-       din favicon.svg cu realfavicongenerator.net — apoi adaugi link-ul aici. -->
+       din favicon.svg cu realfavicongenerator.net. -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
   <link rel="mask-icon" href="favicon-mask.svg?v=2" color="#0F172A" />
 
@@ -456,19 +456,28 @@
       <p class="text-center text-xs font-medium tracking-[0.2em] uppercase text-text-muted mb-6" data-i18n="trust.label">
         Au lucrat cu noi
       </p>
-      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 opacity-70">
-        <div class="flex items-center gap-3 group">
-          <div class="w-10 h-10 rounded-full bg-navy text-white font-display font-bold text-sm flex items-center justify-center shadow-soft">AN</div>
-          <span class="font-display font-semibold text-navy/70 group-hover:text-navy transition-colors">Alfa Nistru</span>
-        </div>
-        <div class="flex items-center gap-3 group">
-          <div class="w-10 h-10 rounded-full bg-navy text-white font-display font-bold text-sm flex items-center justify-center shadow-soft">eC</div>
-          <span class="font-display font-semibold text-navy/70 group-hover:text-navy transition-colors">eCharge Moldova</span>
-        </div>
-        <div class="flex items-center gap-3 group">
-          <div class="w-10 h-10 rounded-full bg-navy text-white font-display font-bold text-sm flex items-center justify-center shadow-soft">PD</div>
-          <span class="font-display font-semibold text-navy/70 group-hover:text-navy transition-colors">Clinica PrimDentLux</span>
-        </div>
+      <div class="trust-logos flex flex-wrap items-center justify-center gap-x-10 lg:gap-x-14 gap-y-6">
+        <a href="https://alfa-nistru.com/ro" target="_blank" rel="noopener noreferrer" class="trust-logo" aria-label="Alfa Nistru">
+          <img src="logos/alfa-nistru.jpg" alt="Alfa Nistru — logo" loading="lazy" width="160" height="48" onerror="this.parentElement.classList.add('logo-fallback')" />
+          <span class="trust-logo-fallback">
+            <span class="trust-logo-mono">AN</span>
+            <span>Alfa Nistru</span>
+          </span>
+        </a>
+        <a href="https://www.echarge.md" target="_blank" rel="noopener noreferrer" class="trust-logo" aria-label="eCharge Moldova">
+          <img src="logos/echarge-moldova.jpg" alt="eCharge Moldova — logo" loading="lazy" width="160" height="48" onerror="this.parentElement.classList.add('logo-fallback')" />
+          <span class="trust-logo-fallback">
+            <span class="trust-logo-mono">eC</span>
+            <span>eCharge Moldova</span>
+          </span>
+        </a>
+        <a href="https://www.interdent.md" target="_blank" rel="noopener noreferrer" class="trust-logo" aria-label="Inter Dent">
+          <img src="logos/inter-dent.jpg" alt="Inter Dent — logo" loading="lazy" width="160" height="48" onerror="this.parentElement.classList.add('logo-fallback')" />
+          <span class="trust-logo-fallback">
+            <span class="trust-logo-mono">ID</span>
+            <span>Inter Dent</span>
+          </span>
+        </a>
       </div>
     </div>
   </section>
@@ -836,7 +845,7 @@
               <div class="testimonial-monogram">LP</div>
               <div>
                 <div class="font-semibold">Ludmila Petco</div>
-                <div class="text-sm text-text-muted" data-i18n="test.3.role">Director · Clinica PrimDentLux</div>
+                <div class="text-sm text-text-muted" data-i18n="test.3.role">Director · Inter Dent</div>
               </div>
             </div>
           </article>
