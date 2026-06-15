@@ -181,8 +181,9 @@
 <!-- ================= MUSIC TOGGLE ================= -->
 <button id="musicBtn" title="Muzică pornit/oprit"><span class="ico">🎵</span></button>
 
-<!-- hidden youtube player -->
-<div id="ytWrap" style="position:fixed;width:1px;height:1px;left:-9999px;top:-9999px;overflow:hidden">
+<!-- youtube player: kept on-screen but tiny & near-transparent so YouTube allows playback
+     (off-screen / 1x1 players get blocked by the autoplay policy) -->
+<div id="ytWrap" style="position:fixed;right:0;bottom:0;width:200px;height:120px;opacity:.01;pointer-events:none;z-index:-1;overflow:hidden">
   <div id="player"></div>
 </div>
 
@@ -362,19 +363,21 @@
 
 <script>
 /* ---------------- ENTER + MUSIC (YouTube IFrame API) ---------------- */
-var player, musicReady=false, isPlaying=false;
+var player, musicReady=false, isPlaying=false, wantMusic=false, ytFailed=false;
+var VIDEO_ID='GibiNy4d4gc';
 function onYouTubeIframeAPIReady(){
   player = new YT.Player('player',{
-    height:'1',width:'1',
-    videoId:'GibiNy4d4gc',
-    playerVars:{autoplay:0,controls:0,loop:1,playlist:'GibiNy4d4gc',
-                modestbranding:1,playsinline:1,rel:0},
+    height:'120',width:'200',
+    videoId:VIDEO_ID,
+    playerVars:{autoplay:0,controls:0,loop:1,playlist:VIDEO_ID,
+                modestbranding:1,playsinline:1,rel:0,origin:location.origin},
     events:{
-      'onReady':function(){ musicReady=true; },
+      'onReady':function(){ musicReady=true; if(wantMusic){ startMusic(); } },
       'onStateChange':function(e){
         if(e.data===YT.PlayerState.PLAYING){ isPlaying=true; updateMusicBtn(); }
         if(e.data===YT.PlayerState.PAUSED || e.data===YT.PlayerState.ENDED){ isPlaying=false; updateMusicBtn(); }
-      }
+      },
+      'onError':function(){ ytFailed=true; updateMusicBtn(); }
     }
   });
 }
@@ -386,17 +389,20 @@ function onYouTubeIframeAPIReady(){
 
 var musicBtn=document.getElementById('musicBtn');
 function updateMusicBtn(){
+  if(ytFailed){ musicBtn.querySelector('.ico').textContent='▶'; musicBtn.title='Deschide muzica pe YouTube'; musicBtn.classList.remove('spin'); return; }
   musicBtn.querySelector('.ico').textContent = isPlaying ? '🎵' : '🔇';
   musicBtn.classList.toggle('spin', isPlaying);
 }
 function startMusic(){
+  wantMusic=true;
   if(musicReady && player && player.playVideo){
     try{ player.unMute(); player.setVolume(45); player.playVideo(); }catch(e){}
   }
 }
 musicBtn.addEventListener('click',function(){
+  if(ytFailed){ window.open('https://www.youtube.com/watch?v='+VIDEO_ID,'_blank'); return; }
   if(!player) return;
-  if(isPlaying){ player.pauseVideo(); } else { player.unMute(); player.playVideo(); }
+  if(isPlaying){ player.pauseVideo(); } else { startMusic(); }
 });
 
 var enter=document.getElementById('enter');
@@ -406,8 +412,12 @@ function enterSite(){
   enter.classList.add('hidden');
   musicBtn.style.display='flex';
   startMusic();
-  // retry once in case API not ready at click time
-  setTimeout(startMusic,800);
+  // keep retrying in case the YT API isn't ready yet at click time
+  var tries=0, t=setInterval(function(){
+    tries++;
+    if(isPlaying || ytFailed || tries>20){ clearInterval(t); return; }
+    startMusic();
+  },500);
   setTimeout(function(){ enter.style.display='none'; },1200);
 }
 
